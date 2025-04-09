@@ -12,8 +12,9 @@ namespace ConsoleApp1
         static void Main(string[] args) //Main entry point for the program - c# is case sensitive
         {
             Console.WriteLine("Hello world"); //Instructions end with ;
+            Console.ReadLine(); //Wait for enter input to close program 
         }
     }
 }
 
-//Testing the program as is, it will execute the log then close after execution
+
