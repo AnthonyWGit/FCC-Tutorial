@@ -15,6 +15,14 @@ namespace ConsoleApp1
             //Initializing and declaring in the same line
             int age = 33;
             Console.WriteLine(age);
+            Console.WriteLine();
+
+            //CSharp accepets on line declarations
+            int numberOne = 885, numberTwo = 21, numberThree = 11;
+            Console.WriteLine("{0},{1},{2}",numberOne,numberTwo,numberThree);
+            //If we want to display multiple lines in a cw statetement we need to pass as first 
+            //parameter a string, and the number in brackets are are variables to display
+
             Console.WriteLine(); //An empty cw will priny an empty line
 
             long bigNumber = 9000000000L; //L needed because int is a 32 bits signed numbers and 
