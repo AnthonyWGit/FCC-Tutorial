@@ -27,14 +27,16 @@ namespace ConsoleApp1
             Console.WriteLine(long.MaxValue);
             Console.WriteLine();
 
-            double negative = -27.5D; //same for decimals
+            double negative = -27.5D; //same for negatives
             Console.WriteLine(negative);
             Console.WriteLine(double.MinValue);
             Console.WriteLine(double.MaxValue);
             Console.WriteLine();
 
-            float deecimal = 0.84F; // same for floats
-            Console.WriteLine(deecimal);
+            float smallDecimal = 0.84F; // same for floats
+                                        //Float - decimal - double are all decimal numbers but 
+                                        //float as smallest range and double largest
+            Console.WriteLine(smallDecimal);
             Console.WriteLine(float.MinValue);
             Console.WriteLine(float.MaxValue);
             Console.WriteLine();
