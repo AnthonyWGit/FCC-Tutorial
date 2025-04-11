@@ -41,6 +41,18 @@ namespace ConsoleApp1
             Console.WriteLine(float.MaxValue);
             Console.WriteLine();
 
+            decimal midDecimal = -0.885M;
+            Console.WriteLine(midDecimal);
+            Console.WriteLine(decimal.MinValue);
+            Console.WriteLine(decimal.MaxValue);
+            Console.WriteLine();
+
+            double bigDecimal = 0.774D;
+            Console.WriteLine(bigDecimal);
+            Console.WriteLine(double.MinValue);
+            Console.WriteLine(double.MaxValue);
+            Console.WriteLine();
+
             Console.ReadLine(); //Wait for enter input to close program 
         }
     }
