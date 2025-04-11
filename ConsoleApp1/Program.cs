@@ -15,6 +15,7 @@ namespace ConsoleApp1
             //Initializing and declaring in the same line
             int age = 33;
             Console.WriteLine(age);
+            Console.WriteLine(); //An empty cw will priny an empty line
 
             long bigNumber = 9000000000L; //L needed because int is a 32 bits signed numbers and 
                                           //long is a 64 bits signed we need to inform the compiler
@@ -24,16 +25,19 @@ namespace ConsoleApp1
             Console.WriteLine(int.MaxValue);
             Console.WriteLine(long.MinValue);
             Console.WriteLine(long.MaxValue);
+            Console.WriteLine();
 
             double negative = -27.5D; //same for decimals
             Console.WriteLine(negative);
             Console.WriteLine(double.MinValue);
             Console.WriteLine(double.MaxValue);
+            Console.WriteLine();
 
             float deecimal = 0.84F; // same for floats
             Console.WriteLine(deecimal);
             Console.WriteLine(float.MinValue);
             Console.WriteLine(float.MaxValue);
+            Console.WriteLine();
 
             Console.ReadLine(); //Wait for enter input to close program 
         }
