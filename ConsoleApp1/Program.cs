@@ -73,10 +73,10 @@ namespace String_Chars
     {
         static void Main(string[] args)
         {
-            string name = "Eve";
-            char letter = 'e';
+            string name = "Eve"; //quotations 
+            char letter = 'e'; //only apostrophes
             Console.WriteLine("{0},{1}", name, letter);
-
+            Console.WriteLine();
             string userInput = Console.ReadLine();
             if (userInput == "numbers")
             {
