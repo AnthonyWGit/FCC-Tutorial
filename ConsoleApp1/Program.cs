@@ -75,12 +75,19 @@ namespace String_Chars
         {
             string name = "Eve"; //quotations 
             char letter = 'e'; //only apostrophes
+            string age = "15";
+            int ageConvert = Convert.ToInt32(age);
             Console.WriteLine("{0},{1}", name, letter);
-            Console.WriteLine();
+            Console.WriteLine("This is a \n carriage return");
+            Console.WriteLine(ageConvert);
             string userInput = Console.ReadLine();
             if (userInput == "numbers")
             {
                 ConsoleApp1.Program.Numbers();
+            }
+            else
+            {
+                Console.WriteLine("The program will exit.");
             }
         }
     }
