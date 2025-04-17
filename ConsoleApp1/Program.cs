@@ -9,7 +9,7 @@ namespace ConsoleApp1
 {
     internal class Program
     {
-        static void Main(string[] args) //Main entry point for the program - c# is case sensitive
+        public static void Numbers() //Main entry point for the program - c# is case sensitive
         {
             Console.WriteLine("Hello world"); //Instructions end with ;
             //Initializing and declaring in the same line
@@ -66,4 +66,22 @@ namespace ConsoleApp1
     }
 }
 
+namespace String_Chars
+{
+    using ConsoleApp1;
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string name = "Eve";
+            char letter = 'e';
+            Console.WriteLine("{0},{1}", name, letter);
 
+            string userInput = Console.ReadLine();
+            if (userInput == "numbers")
+            {
+                ConsoleApp1.Program.Numbers();
+            }
+        }
+    }
+}
