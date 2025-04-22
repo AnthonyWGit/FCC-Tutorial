@@ -157,6 +157,27 @@ namespace Operations
     {
         public static void Operations()
         {
+            int age = 15; //this is a local variable so that's why we can use age multiple times
+            //incrementations
+            Console.WriteLine("{0} {1} {2} {3} {4}", "Age datatype : ",age.GetType(),"and", "Age = ", age);
+            age++;
+            //Same as
+            age += 1;
+
+            age = age + 5;
+            //same as 
+            age += 5;
+            Console.WriteLine("{0} {1}", "Age = ", age);
+            age--;
+            Console.WriteLine("{0} {1}", "Age = ", age);
+            //If any division make it a double
+            double trueAge = (double) age;
+            //GetType gets the datatype of var at runtime
+            Console.WriteLine("{0}, {1} {2}", trueAge.GetType(),"True age is :",trueAge);
+            trueAge /= 7.5;
+            //same as trueAge = trueAge / 7.5
+            Console.WriteLine(trueAge);
+            Console.ReadLine();
         }
     }
 }
