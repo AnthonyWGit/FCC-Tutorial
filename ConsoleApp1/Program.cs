@@ -100,17 +100,35 @@ namespace String_Chars
             Console.WriteLine(floatConverted);
 
             string userInput = Console.ReadLine();
-            if (userInput == "numbers")
+            //if (userInput == "numbers")
+            //{
+            //    ConsoleApp1.Program.Numbers();
+            //}
+            //else if (userInput == "bool")
+            //{
+            //    Bool.Program.BoolExample();
+            //}
+            //else if (userInput == "operations")
+            //{
+            //    Operations.Program.Operations();
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The program will exit.");
+            //}
+            switch (userInput)
             {
-                ConsoleApp1.Program.Numbers();
-            }
-            else if (userInput == "bool")
-            {
-                Bool.Program.BoolExample();
-            }
-            else
-            {
-                Console.WriteLine("The program will exit.");
+                case "numbers":
+                    ConsoleApp1.Program.Numbers();
+                    break;
+                case "bool":
+                    Bool.Program.BoolExample();
+                    break;
+                case "operations":
+                    Operations.Program.Operations();
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -129,6 +147,16 @@ namespace Bool
             isFemale = false;
             Console.WriteLine("{0},{1}", value, isFemale);
             Console.ReadLine();
+        }
+    }
+}
+
+namespace Operations
+{
+    class Program
+    {
+        public static void Operations()
+        {
         }
     }
 }
