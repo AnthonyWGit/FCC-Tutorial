@@ -37,7 +37,7 @@ namespace ConsoleApp1
             Console.WriteLine(long.MaxValue);
             Console.WriteLine();
 
-            double negative = -27.5L; //same for negatives
+            double negative = -27L; //same for negatives
             Console.WriteLine(negative);
             Console.WriteLine(double.MinValue);
             Console.WriteLine(double.MaxValue);
