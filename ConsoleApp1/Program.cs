@@ -18,6 +18,7 @@ namespace ConsoleApp1
             Console.WriteLine(age);
             Console.WriteLine();
 
+            //Whole numbers ---
             //CSharp accepets on line declarations
             int numberOne = 885, numberTwo = 21, numberThree = 11;
             Console.WriteLine("{0},{1},{2}",numberOne,numberTwo,numberThree);
@@ -36,11 +37,13 @@ namespace ConsoleApp1
             Console.WriteLine(long.MaxValue);
             Console.WriteLine();
 
-            double negative = -27.5D; //same for negatives
+            double negative = -27.5L; //same for negatives
             Console.WriteLine(negative);
             Console.WriteLine(double.MinValue);
             Console.WriteLine(double.MaxValue);
             Console.WriteLine();
+
+            //Decimals --- 
 
             float smallDecimal = 0.84F; // same for floats
                                         //Float - decimal - double are all decimal numbers but 
@@ -84,7 +87,7 @@ namespace String_Chars
             string doubleString = "-800000000";
             double doubleConverted = Convert.ToDouble(doubleString);
 
-            string floatString = "9.000000004";
+            string floatString = "9,0004";
             float floatConverted = Convert.ToSingle(floatString);
 
             Console.WriteLine("{0},{1}", name, letter);
