@@ -87,7 +87,8 @@ namespace String_Chars
             string doubleString = "-800000000";
             double doubleConverted = Convert.ToDouble(doubleString);
 
-            string floatString = "9,0004";
+            string floatString = "9,0004"; //comma instad of point because my system locale is FR
+                                           //if locale is US use point
             float floatConverted = Convert.ToSingle(floatString);
 
             Console.WriteLine("{0},{1}", name, letter);
