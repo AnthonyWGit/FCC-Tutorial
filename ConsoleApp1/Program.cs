@@ -104,10 +104,31 @@ namespace String_Chars
             {
                 ConsoleApp1.Program.Numbers();
             }
+            else if (userInput == "bool")
+            {
+                Bool.Program.BoolExample();
+            }
             else
             {
                 Console.WriteLine("The program will exit.");
             }
+        }
+    }
+}
+
+namespace Bool
+{
+    class Program
+    {
+        public static void BoolExample()
+        {
+            bool value = true;
+
+            bool isFemale = true;
+            Console.WriteLine("{0},{1}", value, isFemale);
+            isFemale = false;
+            Console.WriteLine("{0},{1}", value, isFemale);
+            Console.ReadLine();
         }
     }
 }
