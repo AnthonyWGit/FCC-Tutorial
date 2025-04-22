@@ -10,6 +10,7 @@ namespace ConsoleApp1
     internal class Program
     {
         public static void Numbers() //Main entry point for the program - c# is case sensitive
+            //Here it is a public function so it can be accessed from anywhere else in the program
         {
             Console.WriteLine("Hello world"); //Instructions end with ;
             //Initializing and declaring in the same line
@@ -68,6 +69,7 @@ namespace ConsoleApp1
 
 namespace String_Chars
 {
+    using System.Globalization;
     using ConsoleApp1;
     internal class Program
     {
@@ -75,11 +77,24 @@ namespace String_Chars
         {
             string name = "Eve"; //quotations 
             char letter = 'e'; //only apostrophes
-            string age = "15";
-            int ageConvert = Convert.ToInt32(age);
+            //Conversions
+            string ageString = "15";
+            int ageConverted = Convert.ToInt32(ageString);
+
+            string doubleString = "-800000000";
+            double doubleConverted = Convert.ToDouble(doubleString);
+
+            string floatString = "9.000000004";
+            float floatConverted = Convert.ToSingle(floatString);
+
             Console.WriteLine("{0},{1}", name, letter);
             Console.WriteLine("This is a \n carriage return");
-            Console.WriteLine(ageConvert);
+
+            Console.WriteLine("Using conversion functions");
+            Console.WriteLine(ageConverted);
+            Console.WriteLine(doubleConverted);
+            Console.WriteLine(floatConverted);
+
             string userInput = Console.ReadLine();
             if (userInput == "numbers")
             {
