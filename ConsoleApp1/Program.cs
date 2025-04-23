@@ -11,7 +11,11 @@ namespace Navigation
     {
         static void Main(string[] args)
         {
-            string userInput = Console.ReadLine();
+            string stringToDisplay = "Hello ! This is a console tool to show you the progress i did tracking the video" +
+                "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
+                "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n Press the enter key to confirm. \n Type \"exit\" to exit the program";
+            Console.WriteLine(stringToDisplay);
+            string userInput = "";
             //if (userInput == "numbers")
             //{
             //    Numbers.Program.Numbers();
@@ -28,28 +32,38 @@ namespace Navigation
             //{
             //    Console.WriteLine("The program will exit.");
             //}
-            userInput = userInput.ToLower();
-            switch (userInput)
+            while ( userInput != "exit")
             {
-                case "string":
-                    StringChars.Program.StringLetters();
-                    break;
-                case "numbers":
-                    Numbers.Program.Numbers();
-                    break;
-                case "bool":
-                    Bool.Program.BoolExample();
-                    break;
-                case "operations":
-                    Operations.Program.Operations();
-                    break;
-                case "modulus":
-                    Modulus.Program.Modulus();
-                    break;
-                default:
-                    break;
+                userInput = Console.ReadLine();
+                userInput = userInput.ToLower();
+                switch (userInput)
+                {
+                    case "string":
+                        StringChars.Program.StringLetters();
+                        userInput = "";
+                        break;
+                    case "numbers":
+                        Numbers.Program.Numbers();
+                        userInput = "";
+                        break;
+                    case "bool":
+                        Bool.Program.BoolExample();
+                        userInput = "";
+                        break;
+                    case "operations":
+                        Operations.Program.Operations();
+                        userInput = "";
+                        break;
+                    case "modulus":
+                        Modulus.Program.Modulus();
+                        userInput = "";
+                        break;
+                    case "exit":
+                        return; //return the main method so it means the program is closing correctly
+                    default:
+                        break;
+                }
             }
-            Console.ReadLine();
         }
 }
 namespace Numbers
@@ -176,7 +190,6 @@ namespace Operations
             age++;
             //Same as
             age += 1;
-
             age = age + 5;
             //same as 
             age += 5;
