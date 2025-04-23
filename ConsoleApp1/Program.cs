@@ -127,6 +127,9 @@ namespace String_Chars
                 case "operations":
                     Operations.Program.Operations();
                     break;
+                case "modulus":
+                    Modulus.Program.Modulus();
+                    break;
                 default:
                     break;
             }
@@ -194,6 +197,21 @@ namespace Operations
             k = 5;
             Console.WriteLine("{0} {1}","k++ :", k++);//It returns k first then does the increment
 
+            Console.ReadLine();
+        }
+    }
+}
+
+namespace Modulus
+{
+    class Program
+    {
+        public static void Modulus()
+        {
+            int number1 = 25;
+            int number2 = 4;
+            Console.WriteLine(number1 % number2); //outputs 1 - Modulus very usefull to determine if 
+            //odd number or not
             Console.ReadLine();
         }
     }
