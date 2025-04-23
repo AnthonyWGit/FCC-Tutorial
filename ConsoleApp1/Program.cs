@@ -181,7 +181,19 @@ namespace Operations
             //string addition
             string stringOperation = "The quick brown fox ";
             stringOperation += "jumps over the lazy dog";
+            //C# is not build for string removal; stringOperation -= "dog" is a no go 
             Console.WriteLine(stringOperation);
+
+            char letter = 'a';
+            letter += 'c';
+            Console.WriteLine(letter);
+
+            int k = 5;
+            Console.WriteLine("{0} {1}","++k :",++k); //This instruction does the incrementation first
+                                                       //Then use the return value
+            k = 5;
+            Console.WriteLine("{0} {1}","k++ :", k++);//It returns k first then does the increment
+
             Console.ReadLine();
         }
     }
