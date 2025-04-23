@@ -177,6 +177,11 @@ namespace Operations
             trueAge /= 7.5;
             //same as trueAge = trueAge / 7.5
             Console.WriteLine(trueAge);
+
+            //string addition
+            string stringOperation = "The quick brown fox ";
+            stringOperation += "jumps over the lazy dog";
+            Console.WriteLine(stringOperation);
             Console.ReadLine();
         }
     }
