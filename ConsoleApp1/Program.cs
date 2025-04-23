@@ -5,7 +5,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Navigation
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string userInput = Console.ReadLine();
+            //if (userInput == "numbers")
+            //{
+            //    Numbers.Program.Numbers();
+            //}
+            //else if (userInput == "bool")
+            //{
+            //    Bool.Program.BoolExample();
+            //}
+            //else if (userInput == "operations")
+            //{
+            //    Operations.Program.Operations();
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The program will exit.");
+            //}
+            userInput = userInput.ToLower();
+            switch (userInput)
+            {
+                case "string":
+                    StringChars.Program.StringLetters();
+                    break;
+                case "numbers":
+                    Numbers.Program.Numbers();
+                    break;
+                case "bool":
+                    Bool.Program.BoolExample();
+                    break;
+                case "operations":
+                    Operations.Program.Operations();
+                    break;
+                case "modulus":
+                    Modulus.Program.Modulus();
+                    break;
+                default:
+                    break;
+            }
+            Console.ReadLine();
+        }
+}
+namespace Numbers
 {
     internal class Program
     {
@@ -70,13 +117,11 @@ namespace ConsoleApp1
     }
 }
 
-namespace String_Chars
+namespace StringChars
 {
-    using System.Globalization;
-    using ConsoleApp1;
     internal class Program
     {
-        static void Main(string[] args)
+        public static void StringLetters()
         {
             string name = "Eve"; //quotations 
             char letter = 'e'; //only apostrophes
@@ -98,40 +143,6 @@ namespace String_Chars
             Console.WriteLine(ageConverted);
             Console.WriteLine(doubleConverted);
             Console.WriteLine(floatConverted);
-
-            string userInput = Console.ReadLine();
-            //if (userInput == "numbers")
-            //{
-            //    ConsoleApp1.Program.Numbers();
-            //}
-            //else if (userInput == "bool")
-            //{
-            //    Bool.Program.BoolExample();
-            //}
-            //else if (userInput == "operations")
-            //{
-            //    Operations.Program.Operations();
-            //}
-            //else
-            //{
-            //    Console.WriteLine("The program will exit.");
-            //}
-            switch (userInput)
-            {
-                case "numbers":
-                    ConsoleApp1.Program.Numbers();
-                    break;
-                case "bool":
-                    Bool.Program.BoolExample();
-                    break;
-                case "operations":
-                    Operations.Program.Operations();
-                    break;
-                case "modulus":
-                    Modulus.Program.Modulus();
-                    break;
-                default:
-                    break;
             }
         }
     }
@@ -149,7 +160,6 @@ namespace Bool
             Console.WriteLine("{0},{1}", value, isFemale);
             isFemale = false;
             Console.WriteLine("{0},{1}", value, isFemale);
-            Console.ReadLine();
         }
     }
 }
@@ -196,8 +206,6 @@ namespace Operations
                                                        //Then use the return value
             k = 5;
             Console.WriteLine("{0} {1}","k++ :", k++);//It returns k first then does the increment
-
-            Console.ReadLine();
         }
     }
 }
@@ -212,7 +220,6 @@ namespace Modulus
             int number2 = 4;
             Console.WriteLine(number1 % number2); //outputs 1 - Modulus very usefull to determine if 
             //odd number or not
-            Console.ReadLine();
         }
     }
 }
