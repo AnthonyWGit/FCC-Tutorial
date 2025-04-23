@@ -232,7 +232,7 @@ namespace Modulus
             int number1 = 25;
             int number2 = 4;
             Console.WriteLine(number1 % number2); //outputs 1 - Modulus very usefull to determine if 
-            //odd number or not
+            //odd number or not when using  %2
         }
     }
 }
