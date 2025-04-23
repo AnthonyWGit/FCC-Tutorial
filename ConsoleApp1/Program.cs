@@ -13,9 +13,10 @@ namespace Navigation
         {
             string stringToDisplay = "Hello ! This is a console tool to show you the progress i did tracking the video" +
                 "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
-                "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n Press the enter key to confirm. \n Type \"exit\" to exit the program";
+                "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n" 
+                +"Press the enter key to confirm. \n Type \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
-            string userInput = "";
+            string userInput = String.Empty;
             //if (userInput == "numbers")
             //{
             //    Numbers.Program.Numbers();
@@ -38,24 +39,29 @@ namespace Navigation
                 userInput = userInput.ToLower();
                 switch (userInput)
                 {
-                    case "string":
+                    //in C# String are treated as objects so case "string" || "1": won't work
+                    case string placeholder when placeholder == "string" || placeholder == "1":
                         StringChars.Program.StringLetters();
                         userInput = "";
                         break;
-                    case "numbers":
+                    case string placeholder when placeholder == "numbers" || placeholder == "2":
                         Numbers.Program.Numbers();
                         userInput = "";
                         break;
-                    case "bool":
+                    case string placeholder when placeholder == "bool" || placeholder == "3":
                         Bool.Program.BoolExample();
                         userInput = "";
                         break;
-                    case "operations":
+                    case string placeholder when placeholder == "operations" || placeholder == "4":
                         Operations.Program.Operations();
                         userInput = "";
                         break;
-                    case "modulus":
+                    case string placeholder when placeholder == "modulus" || placeholder == "5":
                         Modulus.Program.Modulus();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "var" || placeholder == "6":
+                        Var.Program.Var();
                         userInput = "";
                         break;
                     case "exit":
@@ -126,7 +132,7 @@ namespace Numbers
             Console.WriteLine(double.MaxValue);
             Console.WriteLine();
 
-            Console.ReadLine(); //Wait for enter input to close program 
+            //Console.ReadLine(); //Wait for enter input to close program 
         }
     }
 }
@@ -233,6 +239,20 @@ namespace Modulus
             int number2 = 4;
             Console.WriteLine(number1 % number2); //outputs 1 - Modulus very usefull to determine if 
             //odd number or not when using  %2
+        }
+    }
+}
+
+namespace Var
+{
+    class Program
+    {
+        public static void Var()
+        {
+            Console.WriteLine("var is a keyword wich tells the compiler to auto assign the datatype of"
+                + " the variable based on its assigned value");
+            var age = 266;
+            Console.WriteLine(age + " ans");
         }
     }
 }
