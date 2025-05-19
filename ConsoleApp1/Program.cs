@@ -39,7 +39,8 @@ namespace Navigation
                 userInput = userInput.ToLower();
                 switch (userInput)
                 {
-                    //in C# String are treated as objects so case "string" || "1": won't work
+                    //in C# String are treated as objects so case "string" || "1": won't work so we need
+                    //intermediate value and the when keyword
                     case string placeholder when placeholder == "string" || placeholder == "1":
                         StringChars.Program.StringLetters();
                         userInput = "";
@@ -252,7 +253,19 @@ namespace Var
             Console.WriteLine("var is a keyword wich tells the compiler to auto assign the datatype of"
                 + " the variable based on its assigned value");
             var age = 266;
-            Console.WriteLine(age + " ans");
+            Console.WriteLine(age + " ans. " + age.GetType().ToString());
+            //Still have to put L if we want a int64 number
+            var bigNumber = 8000000000L;
+            Console.WriteLine(bigNumber + " " + bigNumber.GetType().ToString());
+            var name = "Eddie";
+            var letter = 'a';
+            var negative = -25.35;
+            var nDecimal = 12.265;
+            Console.WriteLine(name + " " + name.GetType().ToString() + "\n" 
+                + letter + " " + letter.GetType().ToString() + "\n"
+                + negative + " " + negative.GetType().ToString() + "\n"
+                + nDecimal + " " + nDecimal.GetType().ToString() + "\n");
+
         }
     }
 }
