@@ -14,7 +14,7 @@ namespace Navigation
             string stringToDisplay = "Hello ! This is a console tool to show you the progress i did tracking the video" +
                 "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
                 "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n 7 - Const \n" 
-                +"Press the enter key to confirm. \nType \"exit\" to exit the program";
+                + " 8 - UserInput \n" + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
             //if (userInput == "numbers")
@@ -66,6 +66,10 @@ namespace Navigation
                         userInput = "";
                         break;
                     case string placeholder when placeholder == "const" || placeholder == "7":
+                        ConstEx.Programm.ConstEx();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "userInput" || placeholder == "8":
                         ConstEx.Programm.ConstEx();
                         userInput = "";
                         break;
@@ -284,9 +288,21 @@ namespace ConstEx
             const double percenVat = vat / 100D;
             int balance = 1000;
             //vat is a percentage so we need the D in 100 to not loose the decimal
-            Console.WriteLine(balance * (vat / 100D));
-            Console.WriteLine(balance * percenVat);
+            Console.WriteLine("Your balance is 1000 and you are buying a product with 20% vat, here is the VAT value\n");
+            Console.WriteLine(balance * (vat / 100D) + " :this line the vat paid is calculated as balance * (vat / 100D)");
+            Console.WriteLine(balance * percenVat + " :this line the vat paid is calculated the same way but (vat / 100D) is declared as a constant");
             Console.WriteLine("As an example constants can be usefull to declare the version number of a program");
+        }
+    }
+}
+
+namespace UserInputStorage
+{
+    class Programm
+    {
+        public static void DemoFunction()
+        {
+
         }
     }
 }
