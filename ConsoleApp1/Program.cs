@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,7 +15,7 @@ namespace Navigation
             string stringToDisplay = "Hello ! This is a console tool to show you the progress i did tracking the video" +
                 "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
                 "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n 7 - Const \n" 
-                + " 8 - UserInput \n" + "Press the enter key to confirm. \nType \"exit\" to exit the program";
+                + " 8 - dataTypes \n 9 - UserName \n" + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
             //if (userInput == "numbers")
@@ -42,35 +43,48 @@ namespace Navigation
                     //in C# String are treated as objects so case "string" || "1": won't work so we need
                     //intermediate value and the when keyword
                     case string placeholder when placeholder == "string" || placeholder == "1":
+                        Console.WriteLine("_______________________________________________\n");
                         StringChars.Program.StringLetters();
                         userInput = "";
                         break;
                     case string placeholder when placeholder == "numbers" || placeholder == "2":
+                        Console.WriteLine("_______________________________________________\n");
                         Numbers.Program.Numbers();
                         userInput = "";
                         break;
                     case string placeholder when placeholder == "bool" || placeholder == "3":
+                        Console.WriteLine("_______________________________________________\n");
                         Bool.Program.BoolExample();
                         userInput = "";
                         break;
                     case string placeholder when placeholder == "operations" || placeholder == "4":
+                        Console.WriteLine("_______________________________________________\n");
                         Operations.Program.Operations();
                         userInput = "";
                         break;
                     case string placeholder when placeholder == "modulus" || placeholder == "5":
+                        Console.WriteLine("_______________________________________________\n");
                         Modulus.Program.Modulus();
                         userInput = "";
                         break;
                     case string placeholder when placeholder == "var" || placeholder == "6":
+                        Console.WriteLine("_______________________________________________\n");
                         VarEx.Program.VarEx();
                         userInput = "";
                         break;
                     case string placeholder when placeholder == "const" || placeholder == "7":
+                        Console.WriteLine("_______________________________________________\n");
                         ConstEx.Programm.ConstEx();
                         userInput = "";
                         break;
-                    case string placeholder when placeholder == "userInput" || placeholder == "8":
-                        ConstEx.Programm.ConstEx();
+                    case string placeholder when placeholder == "dataTypes" || placeholder == "8":
+                        Console.WriteLine("_______________________________________________\n");
+                        DataTypes.Programm.DemoFunction();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "username" || placeholder == "9":
+                        Console.WriteLine("_______________________________________________\n");
+                        UserInputName.Program.userInputsName();
                         userInput = "";
                         break;
                     case "exit":
@@ -244,9 +258,10 @@ namespace Modulus
     {
         public static void Modulus()
         {
+            Console.WriteLine("the operation is :25 % 4");
             int number1 = 25;
             int number2 = 4;
-            Console.WriteLine(number1 % number2); //outputs 1 - Modulus very usefull to determine if 
+            Console.WriteLine(number1 % number2 + "\nthis is the result"); //outputs 1 - Modulus very usefull to determine if 
             //odd number or not when using  %2
         }
     }
@@ -296,12 +311,39 @@ namespace ConstEx
     }
 }
 
-namespace UserInputStorage
+namespace DataTypes
 {
     class Programm
     {
         public static void DemoFunction()
         {
+            Console.WriteLine("Be carefull with the type used to declare variable in a case situation where the user would input data");
+            string name = "Eddie";
+            int number = 0123456789; //In the CW the 0 disappears !!! Because it is an int. To make it appear make it as a string
+            int age = 50;
+            Console.WriteLine(name + "\n" + number + "\n" + age + "\n 123456789 is an int32, and that's how compiler treats 0123456789");
+            string numberAsString = "0123456789";
+            Console.WriteLine("___________________________________");
+            Console.WriteLine(name + "\n" + numberAsString + "\n" + age + "\n0123456789 is not a number but actually a string !");
+        }
+    }
+}
+
+namespace UserInputName
+{
+    class Program
+    {
+        public static void userInputsName()
+        {
+            //cw push an /n terminator. If i want to display a message without a line skip i use Console.Write
+            string userName;
+            string age;
+            Console.Write("Enter your name here:");
+            userName = Console.ReadLine();
+                Console.Write("\nEnter your age here:");
+            age = Console.ReadLine();
+            Console.WriteLine("Your name is " + userName + " and you are " + age + " years old");
+            Console.WriteLine("/ !\\ age is "+ age.GetType().ToString());
 
         }
     }
