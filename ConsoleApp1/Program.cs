@@ -280,7 +280,13 @@ namespace ConstEx
     {
         public static void ConstEx()
         {
-
+            const int vat = 20;
+            const double percenVat = vat / 100D;
+            int balance = 1000;
+            //vat is a percentage so we need the D in 100 to not loose the decimal
+            Console.WriteLine(balance * (vat / 100D));
+            Console.WriteLine(balance * percenVat);
+            Console.WriteLine("As an example constants can be usefull to declare the version number of a program");
         }
     }
 }
