@@ -13,8 +13,8 @@ namespace Navigation
         {
             string stringToDisplay = "Hello ! This is a console tool to show you the progress i did tracking the video" +
                 "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
-                "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n" 
-                +"Press the enter key to confirm. \n Type \"exit\" to exit the program";
+                "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n 7 - Const \n" 
+                +"Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
             //if (userInput == "numbers")
@@ -62,7 +62,11 @@ namespace Navigation
                         userInput = "";
                         break;
                     case string placeholder when placeholder == "var" || placeholder == "6":
-                        Var.Program.Var();
+                        VarEx.Program.VarEx();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "const" || placeholder == "7":
+                        ConstEx.Programm.ConstEx();
                         userInput = "";
                         break;
                     case "exit":
@@ -244,11 +248,11 @@ namespace Modulus
     }
 }
 
-namespace Var
+namespace VarEx
 {
     class Program
     {
-        public static void Var()
+        public static void VarEx()
         {
             Console.WriteLine("var is a keyword wich tells the compiler to auto assign the datatype of"
                 + " the variable based on its assigned value");
@@ -259,12 +263,23 @@ namespace Var
             Console.WriteLine(bigNumber + " " + bigNumber.GetType().ToString());
             var name = "Eddie";
             var letter = 'a';
-            var negative = -25.35;
+            var negative = -25;
             var nDecimal = 12.265;
             Console.WriteLine(name + " " + name.GetType().ToString() + "\n" 
                 + letter + " " + letter.GetType().ToString() + "\n"
                 + negative + " " + negative.GetType().ToString() + "\n"
                 + nDecimal + " " + nDecimal.GetType().ToString() + "\n");
+            Console.WriteLine("Best to use var for obvious readable numbers like age or currency");
+        }
+    }
+}
+
+namespace ConstEx
+{
+    class Programm
+    {
+        public static void ConstEx()
+        {
 
         }
     }
