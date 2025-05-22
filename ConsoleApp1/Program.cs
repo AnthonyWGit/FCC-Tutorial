@@ -10,7 +10,7 @@ namespace Navigation
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) //Main entry point for the program - c# is case sensitive
         {
             string stringToDisplay = "Hello ! This is a console tool to show you the progress i did tracking the video" +
                 "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
@@ -99,7 +99,8 @@ namespace Numbers
 {
     internal class Program
     {
-        public static void Numbers() //Main entry point for the program - c# is case sensitive
+        public static void Numbers()  //static keyword means we don't have to create an instance of the class to call it, so no need to do
+                //something like var newInstance = new Numbers.Program(); programInstance.Numbers();
             //Here it is a public function so it can be accessed from anywhere else in the program
         {
             Console.WriteLine("Hello world"); //Instructions end with ;
