@@ -15,7 +15,8 @@ namespace Navigation
             string stringToDisplay = "Hello ! This is a console tool to show you the progress i did tracking the video" +
                 "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
                 "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n 7 - Const \n" 
-                + " 8 - dataTypes \n 9 - UserName \n" + "Press the enter key to confirm. \nType \"exit\" to exit the program";
+                + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n"
+                + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
             //if (userInput == "numbers")
@@ -85,6 +86,11 @@ namespace Navigation
                     case string placeholder when placeholder == "username" || placeholder == "9":
                         Console.WriteLine("_______________________________________________\n");
                         UserInputName.Program.userInputsName();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "Guess the number" || placeholder == "10":
+                        Console.WriteLine("_______________________________________________\n");
+                        NumberGuess.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -358,6 +364,47 @@ namespace UserInputName
             else if (ageInt > 18 && ageInt <= 30)
             {
                 Console.WriteLine("You are between 19 and 30");
+            }
+        }
+    }
+}
+
+namespace NumberGuess
+{
+    class Program
+    {
+        private static int firstNumberConvert;
+        private static int secondNumberConver;
+
+        public static void Demo()
+        {
+            Console.WriteLine("Enter number One.");
+            string firstNumber = Console.ReadLine();
+            Console.WriteLine("Enter number Two");
+            string secondNumber = Console.ReadLine();
+            //In the block below we test if user actually puts a correct number and stop
+            //the execution if the imput is incorrect. Putting a letter for example would break the
+            //program and throw an exception so we try the convert and catch the error if it happens
+            try
+            {
+                firstNumberConvert = Convert.ToInt32(firstNumber);
+                secondNumberConver = Convert.ToInt32(secondNumber);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Incorrect numbers, returning to menu.");
+                return;
+            }
+            Console.WriteLine("What is " + firstNumberConvert + "x" + secondNumberConver + " ?");
+            string answer = Console.ReadLine();
+            int answerConverted = Convert.ToInt32(answer);
+            if (answerConverted == (firstNumberConvert * secondNumberConver))
+            {
+                Console.WriteLine("Bravo !");
+            }
+            else
+            {
+                Console.WriteLine("Try again");
             }
         }
     }
