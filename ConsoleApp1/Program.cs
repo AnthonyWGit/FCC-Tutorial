@@ -350,6 +350,10 @@ namespace UserInputName
             {
                 Console.WriteLine("You are 18 or over. The age value that has been tested is the converted string into int :" + ageInt.GetType().ToString());
             }
+            else if (ageInt > 18 && ageInt <= 30)
+            {
+                Console.WriteLine("You are between 19 and 30");
+            }
         }
     }
 }
