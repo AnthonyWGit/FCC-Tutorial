@@ -343,7 +343,7 @@ namespace UserInputName
             userName = Console.ReadLine();
                 Console.Write("\nEnter your age here:");
             age = Console.ReadLine();
-            Console.WriteLine("Your name is " + userName + " and you are " + age + " years old");
+            Console.WriteLine("Your name is " + userName + " and you are " + age + " years old"); //+ is a concatenation operator 
             Console.WriteLine("/ !\\ age is "+ age.GetType().ToString());
 
         }
