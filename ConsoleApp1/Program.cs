@@ -478,15 +478,50 @@ namespace LoopWhile
 {
     class Program
     {
+        private static int firstNumberConvert;
+        private static int secondNumberConvert;
         public static void Demo()
         {
-            int i = 0;
-            while(i < 10)
+            //int i = 0;
+            //while(i < 10)
+            //{
+            //    i++; // 9 prints from 1 to 10
+            //    Console.WriteLine(i);
+            //    // i++; 9 prints from 0 to 9
+            //}
+            Console.WriteLine("Enter number One.");
+            string firstNumber = Console.ReadLine();
+            Console.WriteLine("Enter number Two");
+            string secondNumber = Console.ReadLine();
+            try
             {
-                i++; // 9 prints from 1 to 10
-                Console.WriteLine(i);
-                // i++; 9 prints from 0 to 9
+                firstNumberConvert = Convert.ToInt32(firstNumber);
+                secondNumberConvert = Convert.ToInt32(secondNumber);
             }
+            catch (FormatException)
+            {
+                Console.WriteLine("Incorrect numbers, returning to menu.");
+                return;
+            }
+            Console.WriteLine("What is " + firstNumberConvert + "x" + secondNumberConvert + " ?");
+            Console.WriteLine("Type \"exit\" if you want to quit");
+            Console.WriteLine(); //empty line for readability 
+            string answer = Console.ReadLine();
+            if (answer.ToLower() == "exit")
+            {
+                return;
+            }
+            int answerConverted = Convert.ToInt32(answer);
+            while (answerConverted != firstNumberConvert * secondNumberConvert)
+            {
+                if (answerConverted != (firstNumberConvert * secondNumberConvert))
+                {
+                    Console.WriteLine("Try again!");
+                    answer = Console.ReadLine();
+                    answerConverted = Convert.ToInt32(answer);
+                }
+            }
+            Console.WriteLine("Bravo!");
         }
     }
 }
