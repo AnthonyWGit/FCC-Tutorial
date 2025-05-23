@@ -1,9 +1,11 @@
 ﻿//Libraries
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Navigation
@@ -16,7 +18,7 @@ namespace Navigation
                 "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
                 "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n 7 - Const \n" 
                 + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n" + 
-                " 12 - While loop \n 13 - Conditional/Ternary Operator \n"
+                " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n "
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -107,6 +109,11 @@ namespace Navigation
                     case string placeholder when placeholder == "Conditional operator" || placeholder == "Ternary Operator" || placeholder == "13":
                         Console.WriteLine("_______________________________________________\n");
                         ConditionalOperator.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "format pattern" || placeholder == "14":
+                        Console.WriteLine("_______________________________________________\n");
+                        FormatPattern.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -568,4 +575,29 @@ namespace ConditionalOperator
                 Console.WriteLine("The if operation is written in the code as :\n Console.WriteLine(ageConverted > 10 ? \"Valid\" : \"Invalid\");");
             }
         }
+}
+
+namespace FormatPattern
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            //I need this line because the font in my consonsole doesn't display € natively
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            Console.WriteLine("Here is an exemple of numeric formating"
+                 + "\n1000/12.34");
+            double value = 1000D / 12.34D;
+            Console.WriteLine(value);
+            Console.WriteLine(string.Format("{0:0.00}",value));  //0 represents the first value, the 0:00
+                                                                 //mean we want to round up up to two decimals
+            Console.WriteLine(string.Format("{0:0.0}", value));
+            Console.WriteLine(string.Format("{0:0.#}", value)); //hashtag trim any 0
+            Console.WriteLine(string.Format("{0:0.0#}", value));//at 2 decimals it's not a whol number so no 0 trim 
+            //Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
+            double moni = 10D / 3D;
+            Console.WriteLine(String.Format("{0:0.00} €", moni));
+        }
+    }
 }
