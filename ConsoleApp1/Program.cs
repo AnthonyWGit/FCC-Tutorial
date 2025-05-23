@@ -480,6 +480,7 @@ namespace LoopWhile
     {
         private static int firstNumberConvert;
         private static int secondNumberConvert;
+        private static int answerConverted;
         public static void Demo()
         {
             //int i = 0;
@@ -511,7 +512,16 @@ namespace LoopWhile
             {
                 return;
             }
-            int answerConverted = Convert.ToInt32(answer);
+
+            try
+            {
+                answerConverted = Convert.ToInt32(answer);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
             while (answerConverted != firstNumberConvert * secondNumberConvert)
             {
                 if (answerConverted != (firstNumberConvert * secondNumberConvert))
