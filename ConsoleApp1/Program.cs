@@ -416,6 +416,7 @@ namespace Loop
     {
         public static void Demo()
         {
+            //we can use the same int i it won't break the program
             for (int i = 0; i < 10; i++) // start at 0, stops at 9 will be printed 9 times
             {
                 Console.WriteLine("Hello");
@@ -423,6 +424,14 @@ namespace Loop
             for (int i = 0; i <= 10; i+=2)
             {
                 Console.WriteLine(i);
+            }
+
+            Console.Write("How many times do you want to say hi ?:");
+            int count = Convert.ToInt32(Console.ReadLine()); //Instead of doing what i did above i can 
+            //declare the int and use the convert operation on the console readline directly 
+            for (int i = 0;i <= count; i++)
+            {
+                Console.WriteLine(i + " - Hi!");
             }
         }
     }
