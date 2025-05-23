@@ -429,7 +429,7 @@ namespace Loop
             Console.Write("How many times do you want to say hi ?:");
             int count = Convert.ToInt32(Console.ReadLine()); //Instead of doing what i did above i can 
             //declare the int and use the convert operation on the console readline directly 
-            for (int i = 0;i <= count; i++)
+            for (int i = 0;i < count; i++)
             {
                 Console.WriteLine(i + " - Hi!");
             }
