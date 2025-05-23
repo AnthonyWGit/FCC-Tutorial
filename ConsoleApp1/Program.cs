@@ -414,6 +414,7 @@ namespace Loop
 {
     class Program
     {
+        private static int count;
         public static void Demo()
         {
             //we can use the same int i it won't break the program
@@ -427,11 +428,36 @@ namespace Loop
             }
 
             Console.Write("How many times do you want to say hi ?:");
-            int count = Convert.ToInt32(Console.ReadLine()); //Instead of doing what i did above i can 
+            //We need a try catch again or some sort of fallback solution if user inputs something else than an int 
+            try
+            {
+                count = Convert.ToInt32(Console.ReadLine()); //Instead of doing what i did above i can 
+            }
+            catch (Exception)
+            {
+                return;
+            }
             //declare the int and use the convert operation on the console readline directly 
-            for (int i = 0;i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 Console.WriteLine(i + " - Hi!");
+            }
+            Console.WriteLine("Now decide what you want to write and how many times it will be repeated");
+
+            Console.Write("How many prints ?");
+            try
+            {
+                count = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception) 
+            {
+                return;
+            }
+            Console.WriteLine("Write your message in the new line");
+            string msg = Console.ReadLine();
+            for (int i = 0;i < count; i++)
+            {
+                Console.WriteLine(msg);
             }
         }
     }
