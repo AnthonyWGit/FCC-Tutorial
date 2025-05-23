@@ -15,7 +15,7 @@ namespace Navigation
             string stringToDisplay = "Hello ! This is a console tool to show you the progress i did tracking the video" +
                 "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
                 "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n 7 - Const \n" 
-                + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n"
+                + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n"
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -91,6 +91,11 @@ namespace Navigation
                     case string placeholder when placeholder == "Guess the number" || placeholder == "10":
                         Console.WriteLine("_______________________________________________\n");
                         NumberGuess.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "For loop" || placeholder == "11":
+                        Console.WriteLine("_______________________________________________\n");
+                        Loop.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -400,6 +405,24 @@ namespace NumberGuess
             else
             {
                 Console.WriteLine("Try again");
+            }
+        }
+    }
+}
+
+namespace Loop
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            for (int i = 0; i < 10; i++) // start at 0, stops at 9 will be printed 9 times
+            {
+                Console.WriteLine("Hello");
+            }
+            for (int i = 0; i <= 10; i+=2)
+            {
+                Console.WriteLine(i);
             }
         }
     }
