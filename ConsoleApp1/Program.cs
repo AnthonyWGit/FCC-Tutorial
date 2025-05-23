@@ -16,7 +16,7 @@ namespace Navigation
                 "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
                 "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n 7 - Const \n" 
                 + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n" + 
-                " 12 - While loop \n"
+                " 12 - While loop \n 13 - Conditional/Ternary Operator \n"
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -102,6 +102,11 @@ namespace Navigation
                     case string placeholder when placeholder == "While loop" || placeholder == "12":
                         Console.WriteLine("_______________________________________________\n");
                         LoopWhile.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "Conditional operator" || placeholder == "Ternary Operator" || placeholder == "13":
+                        Console.WriteLine("_______________________________________________\n");
+                        ConditionalOperator.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -522,7 +527,20 @@ namespace LoopWhile
                 return;
             }
 
-            while (answerConverted != firstNumberConvert * secondNumberConvert)
+            //while (answerConverted != firstNumberConvert * secondNumberConvert)
+            //{
+            //    if (answerConverted != (firstNumberConvert * secondNumberConvert))
+            //    {
+            //        Console.WriteLine("Try again!");
+            //        answer = Console.ReadLine();
+            //        answerConverted = Convert.ToInt32(answer);
+            //    }
+            //}
+            //Console.WriteLine("Bravo!");
+
+            do //what is in the braces will run until the while condition is respected
+                //Actually a more suitable option in this case because we want the user to always input 
+                //something
             {
                 if (answerConverted != (firstNumberConvert * secondNumberConvert))
                 {
@@ -530,8 +548,23 @@ namespace LoopWhile
                     answer = Console.ReadLine();
                     answerConverted = Convert.ToInt32(answer);
                 }
-            }
+            } while (answerConverted != firstNumberConvert * secondNumberConvert);
             Console.WriteLine("Bravo!");
         }
     }
+}
+
+namespace ConditionalOperator
+{
+    class Program
+        {
+        public static void Demo()
+            {
+                Console.Write("Enter an age: ");
+                string age = Console.ReadLine();
+                int ageConverted = Convert.ToInt32(age);
+                Console.WriteLine(ageConverted > 10 ? "Valid" : "Invalid");
+                Console.WriteLine("The if operation is written in the code as :\n Console.WriteLine(ageConverted > 10 ? \"Valid\" : \"Invalid\");");
+            }
+        }
 }
