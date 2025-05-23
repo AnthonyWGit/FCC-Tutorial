@@ -15,7 +15,8 @@ namespace Navigation
             string stringToDisplay = "Hello ! This is a console tool to show you the progress i did tracking the video" +
                 "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
                 "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n 7 - Const \n" 
-                + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n"
+                + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n" + 
+                " 12 - While loop \n"
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -96,6 +97,11 @@ namespace Navigation
                     case string placeholder when placeholder == "For loop" || placeholder == "11":
                         Console.WriteLine("_______________________________________________\n");
                         LoopFor.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "While loop" || placeholder == "12":
+                        Console.WriteLine("_______________________________________________\n");
+                        LoopWhile.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -463,6 +469,23 @@ namespace LoopFor
             for (int i = 0;i < count; i++)
             {
                 Console.WriteLine(msg);
+            }
+        }
+    }
+}
+
+namespace LoopWhile
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            int i = 0;
+            while(i < 10)
+            {
+                i++; // 9 prints from 1 to 10
+                Console.WriteLine(i);
+                // i++; 9 prints from 0 to 9
             }
         }
     }
