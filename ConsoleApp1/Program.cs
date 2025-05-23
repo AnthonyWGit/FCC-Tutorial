@@ -95,7 +95,7 @@ namespace Navigation
                         break;
                     case string placeholder when placeholder == "For loop" || placeholder == "11":
                         Console.WriteLine("_______________________________________________\n");
-                        Loop.Program.Demo();
+                        LoopFor.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -410,7 +410,7 @@ namespace NumberGuess
     }
 }
 
-namespace Loop
+namespace LoopFor
 {
     class Program
     {
@@ -444,13 +444,18 @@ namespace Loop
             }
             Console.WriteLine("Now decide what you want to write and how many times it will be repeated");
 
-            Console.Write("How many prints ?");
+            Console.Write("How many prints ? (above 0)");
             try
             {
                 count = Convert.ToInt32(Console.ReadLine());
             }
             catch (Exception) 
             {
+                return;
+            }
+            if (count == 0)
+            {
+                Console.WriteLine("Operation aborted.");
                 return;
             }
             Console.WriteLine("Write your message in the new line");
