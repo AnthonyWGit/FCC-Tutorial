@@ -352,12 +352,7 @@ namespace UserInputName
             int ageInt = Convert.ToInt32(age);
             Console.WriteLine("Your name is " + userName + " and you are " + age + " years old"); //+ is a concatenation operator 
             Console.WriteLine("/ !\\ age is "+ age.GetType().ToString());
-
-            if (ageInt < 0 || ageInt > 150)
-            {
-                Console.WriteLine("Invalid age");
-            }
-            else if (ageInt >= 18)
+            if (ageInt >= 18)
             {
                 Console.WriteLine("You are 18 or over. The age value that has been tested is the converted string into int :" + ageInt.GetType().ToString());
             }
