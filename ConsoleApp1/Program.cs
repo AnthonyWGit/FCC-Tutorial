@@ -391,8 +391,8 @@ namespace NumberGuess
 {
     class Program
     {
-        private static int firstNumberConvert;
-        private static int secondNumberConver;
+        //private static int firstNumberConvert;
+        //private static int secondNumberConvert;
 
         public static void Demo()
         {
@@ -403,20 +403,26 @@ namespace NumberGuess
             //In the block below we test if user actually puts a correct number and stop
             //the execution if the imput is incorrect. Putting a letter for example would break the
             //program and throw an exception so we try the convert and catch the error if it happens
-            try
-            {
-                firstNumberConvert = Convert.ToInt32(firstNumber);
-                secondNumberConver = Convert.ToInt32(secondNumber);
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine("Incorrect numbers, returning to menu.");
-                return;
-            }
-            Console.WriteLine("What is " + firstNumberConvert + "x" + secondNumberConver + " ?");
+            //try
+            //{
+            //    firstNumberConvert = Convert.ToInt32(firstNumber);
+            //    secondNumberConvert = Convert.ToInt32(secondNumber);
+            //}
+            //catch (FormatException e)
+            //{
+            //    Console.WriteLine("Incorrect numbers, returning to menu.");
+            //    return;
+            //}
+
+            bool pass1 = int.TryParse(firstNumber, out int firstNumberConvert); //If the conversion is Ok then string is output as an int as firstNumberConvert
+            bool pass2 = int.TryParse(secondNumber, out int secondNumberConvert);
+
+            if (pass1 != true || pass2 != true) { Console.WriteLine("Invalid number"); return; }
+
+            Console.WriteLine("What is " + firstNumberConvert + "x" + secondNumberConvert + " ?");
             string answer = Console.ReadLine();
             int answerConverted = Convert.ToInt32(answer);
-            if (answerConverted == (firstNumberConvert * secondNumberConver))
+            if (answerConverted == (firstNumberConvert * secondNumberConvert))
             {
                 Console.WriteLine("Bravo !");
             }
@@ -432,7 +438,6 @@ namespace LoopFor
 {
     class Program
     {
-        private static int count;
         public static void Demo()
         {
             //we can use the same int i it won't break the program
@@ -446,39 +451,31 @@ namespace LoopFor
             }
 
             Console.Write("How many times do you want to say hi ?:");
-            //We need a try catch again or some sort of fallback solution if user inputs something else than an int 
-            try
-            {
-                count = Convert.ToInt32(Console.ReadLine()); //Instead of doing what i did above i can 
-            }
-            catch (Exception)
-            {
-                return;
-            }
+
+            string count = Console.ReadLine(); //Instead of doing what i did above i can 
+            bool pass = int.TryParse(count, out int countConverted);
+            if (!pass) { Console.WriteLine("Invalid number"); return; }
+
             //declare the int and use the convert operation on the console readline directly 
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < countConverted; i++)
             {
                 Console.WriteLine(i + " - Hi!");
             }
             Console.WriteLine("Now decide what you want to write and how many times it will be repeated");
 
             Console.Write("How many prints ? (above 0)");
-            try
-            {
-                count = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (Exception) 
-            {
-                return;
-            }
-            if (count == 0)
+            string count2 = Console.ReadLine();
+            bool pass2 = int.TryParse(count2, out int countConverted2);
+            if (!pass2){ Console.WriteLine("Invalid number");return; }
+            if (countConverted2 == 0)
             {
                 Console.WriteLine("Operation aborted.");
                 return;
             }
             Console.WriteLine("Write your message in the new line");
             string msg = Console.ReadLine();
-            for (int i = 0;i < count; i++)
+            for (int i = 1;i < countConverted2; i++) // starts as because we i++ if 0 then we
+                //have 1 more over the limit
             {
                 Console.WriteLine(msg);
             }
@@ -490,9 +487,8 @@ namespace LoopWhile
 {
     class Program
     {
-        private static int firstNumberConvert;
-        private static int secondNumberConvert;
-        private static int answerConverted;
+        //private static int firstNumberConverted;
+        //private static int secondNumberConverted;
         public static void Demo()
         {
             //int i = 0;
@@ -506,34 +502,16 @@ namespace LoopWhile
             string firstNumber = Console.ReadLine();
             Console.WriteLine("Enter number Two");
             string secondNumber = Console.ReadLine();
-            try
-            {
-                firstNumberConvert = Convert.ToInt32(firstNumber);
-                secondNumberConvert = Convert.ToInt32(secondNumber);
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Incorrect numbers, returning to menu.");
-                return;
-            }
-            Console.WriteLine("What is " + firstNumberConvert + "x" + secondNumberConvert + " ?");
+
+            bool pass1 = int.TryParse(firstNumber, out int firstNumberConverted);
+            bool pass2 = int.TryParse(secondNumber, out int secondNumberConverted);
+
+            if (!pass1 || !pass2){ Console.WriteLine("Invalid number somewhere");return;}
+
+            Console.WriteLine("What is " + firstNumberConverted + "x" + secondNumberConverted + " ?");
             Console.WriteLine("Type \"exit\" if you want to quit");
             Console.WriteLine(); //empty line for readability 
-            string answer = Console.ReadLine();
-            if (answer.ToLower() == "exit")
-            {
-                return;
-            }
-
-            try
-            {
-                answerConverted = Convert.ToInt32(answer);
-            }
-            catch (Exception)
-            {
-                return;
-            }
-
+            int answerConverted;
             //while (answerConverted != firstNumberConvert * secondNumberConvert)
             //{
             //    if (answerConverted != (firstNumberConvert * secondNumberConvert))
@@ -549,13 +527,18 @@ namespace LoopWhile
                 //Actually a more suitable option in this case because we want the user to always input 
                 //something
             {
-                if (answerConverted != (firstNumberConvert * secondNumberConvert))
+                string answer = Console.ReadLine();
+                if (answer.ToLower() == "exit")
+                {
+                    return;
+                }
+                bool pass3 = int.TryParse(answer, out answerConverted);
+                if (!pass3) Console.WriteLine("NaN");
+                if (answerConverted != firstNumberConverted * secondNumberConverted)
                 {
                     Console.WriteLine("Try again!");
-                    answer = Console.ReadLine();
-                    answerConverted = Convert.ToInt32(answer);
                 }
-            } while (answerConverted != firstNumberConvert * secondNumberConvert);
+            } while (answerConverted != firstNumberConverted * secondNumberConverted);
             Console.WriteLine("Bravo!");
         }
     }
