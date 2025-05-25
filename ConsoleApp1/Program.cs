@@ -547,17 +547,24 @@ namespace LoopWhile
 namespace ConditionalOperator
 {
     class Program
-        {
+    {
         public static void Demo()
+        {
+            Console.Write("Enter an age: ");
+            string age = Console.ReadLine();
+            //without the previous pass intermediate value 
+            if (int.TryParse(age, out int ageConverted))
             {
-                Console.Write("Enter an age: ");
-                string age = Console.ReadLine();
-                int ageConverted = Convert.ToInt32(age);
-            //it's better for the memory to print it right away 
+                //it's better for the memory to print it right away 
                 Console.WriteLine(ageConverted > 10 ? "Valid" : "Invalid");
                 Console.WriteLine("The if operation is written in the code as :\n Console.WriteLine(ageConverted > 10 ? \"Valid\" : \"Invalid\");");
             }
+            else
+            {
+                Console.WriteLine("NaN");
+            }
         }
+    }
 }
 
 namespace FormatPattern
