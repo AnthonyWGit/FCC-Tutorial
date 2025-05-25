@@ -598,6 +598,18 @@ namespace FormatPattern
             //Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
             double moni = 10D / 3D;
             Console.WriteLine(String.Format("{0:0.00} €", moni));
+            //What if we want to display negative currency as if it was a balance change ? 
+            Console.WriteLine();
+            double moniNegative = -10D / 3D;
+            Console.WriteLine(String.Format("{0:0.00} €", moni));
+            Console.WriteLine(moniNegative.ToString("C")); //C is a format to display a currency
+
+            Console.WriteLine(moniNegative.ToString("C", CultureInfo.CurrentCulture)); //That's the C format of the CurentCulture
+            Console.WriteLine(moniNegative.ToString("C", CultureInfo.CreateSpecificCulture("en-US")) + " English US");
+            Console.WriteLine(moniNegative.ToString("C", CultureInfo.CreateSpecificCulture("en-AU")) + " English AUS");
+            Console.WriteLine(moniNegative.ToString("C", CultureInfo.CreateSpecificCulture("en-NZ")) + " English NZ");
+
+
         }
     }
 }
