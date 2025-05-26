@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Channels;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace Navigation
                 " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
                 + " 15 - FizzBuzz \n 16 - Verbatim \n 17 - StringFormat \n 18 - Interpolation \n 19 - StringConcat \n "
                 + "20 - Equals \n 21 - LoopIteration \n 22 - EmptyOrNull \n 23 - LoopReverse \n 24 - Arrays \n"
-                + " 25 - \n "
+                + " 25 - ArraysOperations \n "
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -168,6 +169,11 @@ namespace Navigation
                     case string placeholder when placeholder == "Array" || placeholder == "24":
                         Console.WriteLine("_______________________________________________\n");
                         Arrays.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "ArrayOperations" || placeholder == "25":
+                        Console.WriteLine("_______________________________________________\n");
+                        ArraysOperations.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -940,6 +946,83 @@ namespace Arrays
                 Console.Write($"{num} ");
             }
             Console.WriteLine();
+        }
+    }
+}
+
+namespace ArraysOperations
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            int[] numbers = new int[] { 4, 51, 6, 84 }; //syntax to declarearray without len
+            foreach (int num in numbers)
+            {
+                Console.Write($"{num} ");
+            }
+            Console.WriteLine() ;
+            Console.WriteLine("Sort");
+
+            //int[] arraySorted = Array.Sort(numbers);
+            //if i want to keep original array i need to do something like this 
+            int[] arraySorted = (int[])numbers.Clone();
+            Array.Sort(arraySorted);
+            foreach (int num in arraySorted)
+            {
+                Console.Write($"{num} ");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Reverse");
+            int[] arrayReversed = (int[])numbers.Clone();
+            Array.Reverse(arrayReversed);
+            Array.Reverse(numbers);
+            foreach (int num in arrayReversed)
+            {
+                Console.Write($"{num} ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Clearing");
+            int[] arrayCleared = (int[])numbers.Clone();
+            Array.Clear(arrayCleared,0,arrayCleared.Length);
+            foreach(var something in  arrayCleared)
+            {
+                Console.Write(something);
+            }
+            //Default value of int is 0
+            Console.WriteLine();
+
+            Console.Write("What number do you want to search ?:");
+            int nbToSeatch = Convert.ToInt32(Console.ReadLine());
+            int position = Array.IndexOf(numbers, nbToSeatch); 
+            if (position >= 0)
+            {
+                Console.WriteLine($"Number {nbToSeatch} has been found at {position}");
+            }
+            else
+            {
+                Console.WriteLine($"number {nbToSeatch} has not been found");
+            }
+        }
+    }
+}
+
+namespace Lists
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            //Lists act like modular arrays
+            int[] numbers = { 1, 45, 6, 9 };
+
+            List<int> listNumbers = new List<int>();
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.Write("Enter a number: ");
+                int number = Convert.ToInt32(Console.ReadLine());
+                listNumbers.Add(number);
+            }
         }
     }
 }
