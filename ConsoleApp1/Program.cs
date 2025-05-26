@@ -21,7 +21,7 @@ namespace Navigation
                 + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n" + 
                 " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
                 + " 15 - FizzBuzz \n 16 - Verbatim \n 17 - StringFormat \n 18 - Interpolation \n 19 - StringConcat \n "
-                + "20 - Equals \n 21 - LoopIteration \n"
+                + "20 - Equals \n 21 - LoopIteration \n 22 - EmptyOrNull \n 23 - LoopReverse \n"
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -152,6 +152,16 @@ namespace Navigation
                     case string placeholder when placeholder == "LoopIteration" || placeholder == "21":
                         Console.WriteLine("_______________________________________________\n");
                         LoopIteration.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "EmptyOrNull" || placeholder == "22":
+                        Console.WriteLine("_______________________________________________\n");
+                        EmptyOrNull.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "LoopReverse" || placeholder == "23":
+                        Console.WriteLine("_______________________________________________\n");
+                        LoopReverse.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -830,6 +840,63 @@ namespace LoopIteration
                 }
             }
             Console.WriteLine(contains);
+        }
+    }
+}
+
+namespace EmptyOrNull
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            Console.WriteLine("what's yo name ?");
+            string name = Console.ReadLine();
+
+            //if (name != "")
+            //{
+            //  Console.WriteLine("Empty");
+            //}
+
+            //if (!name.Equals(""))
+            //{
+            //  Console.Writeline("Empty");
+            //}
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                if (name.Equals("Magic"))
+                {
+                    Console.WriteLine("Yay!");
+                }
+                else
+                {
+                    Console.WriteLine("Nay!");
+                }
+            }
+        }
+    }
+}
+
+namespace LoopReverse
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            string msg = Console.ReadLine();
+            for (int i = 0;i < msg.Length;i++)
+            {
+                Console.Write(msg[i]);
+            }
+
+            Console.WriteLine("\nNow the reverse\n");
+
+            for (int i = msg.Length - 1;i >= 0;i--) //Looping through all indexes but starting at the end 
+            {
+                Console.Write(msg[i]);
+            }
+            Console.WriteLine();
         }
     }
 }
