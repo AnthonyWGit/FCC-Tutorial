@@ -19,7 +19,7 @@ namespace Navigation
                 "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n 7 - Const \n" 
                 + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n" + 
                 " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
-                + " 15 - FizzBuzz \n 16 - Verbatim \n 17 - StringFormat \n "
+                + " 15 - FizzBuzz \n 16 - Verbatim \n 17 - StringFormat \n 18 - Interpolation \n "
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -128,6 +128,11 @@ namespace Navigation
                         userInput = "";
                         break;
                     case string placeholder when placeholder == "stringFormat" || placeholder == "17":
+                        Console.WriteLine("_______________________________________________\n");
+                        stringFormat.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "interpolation" || placeholder == "18":
                         Console.WriteLine("_______________________________________________\n");
                         stringFormat.Program.Demo();
                         userInput = "";
@@ -695,6 +700,23 @@ namespace stringFormat
             Console.WriteLine("Your name is " + name + " and your age is " + age +".");
             Console.WriteLine("[----------------------------------]");
             Console.WriteLine("Your name is {0} and your age is {1}.", name, age);
+        }
+    }
+}
+
+namespace Interpolation
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            string age = "50";
+            string name = "Eddie";
+            Console.WriteLine("Name : " + name);
+            Console.WriteLine("Age : " + age);
+            Console.WriteLine("Your name is " + name + " and your age is " + age + ".");
+            Console.WriteLine("[----------------------------------]");
+            Console.WriteLine($"Your name is {name} and your age is {age}.");
         }
     }
 }
