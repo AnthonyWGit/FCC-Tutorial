@@ -1130,3 +1130,29 @@ namespace ExerciceOddSplit
         }
     }
 }
+
+namespace ExerciceDict
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            /*
+             * Define and initialize two integers num, len
+             * (7,5)->[7,14,21,28,35]
+             * Create int array with size length
+             * loop through and insert the (loop counter x num) into the array
+             * print the final array
+             */
+
+            int num = 7;
+            int len = 5;
+            int[] numbers = new int[len];
+            for (int i = 0;i < len; i++)
+            {
+                numbers[i] = num * i;
+            }
+
+        }
+    }
+}
