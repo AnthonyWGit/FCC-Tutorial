@@ -917,25 +917,29 @@ namespace Arrays
             int number2 = 10;
             int number3 = 15;
 
-            int[] numbersArray = new int[4]; // To declare an array use the bracket notation after
+            int[] numbersArray = new int[10]; // To declare an array use the bracket notation after
             //datatype and instantiate it with the amount of indexes you want 
-
-            Console.Write("Enter a number: ");
-            numbersArray[0] = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter a number: ");
-            numbersArray[1] = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter a number: ");
-            numbersArray[2] = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter a number: ");
-            numbersArray[3] = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine($"{number1} & {number2} & {number3}");
+            //Console.WriteLine($"{number1} & {number2} & {number3}");
             //Console.WriteLine($"{numbersArray[0]} & {numbersArray[1]} & {numbersArray[2]}");
-
+            Console.Write("Length of the loop ?");
+            int loopLen = Convert.ToInt32(Console.ReadLine());
+            Array.Resize(ref numbersArray, loopLen);
+            for (int i = 0; i < numbersArray.Length; i++)
+            {
+                Console.Write("Enter a number: ");
+                numbersArray[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine();
             for (int i = 0; i < numbersArray.Length;i++)
             {
                 Console.Write($"{numbersArray[i]} ");
-            }   
+            }
+            Console.WriteLine();
+            foreach (int num in numbersArray) //More suited when yuo know you need to loop through all the array
+            {
+                Console.Write($"{num} ");
+            }
+            Console.WriteLine();
         }
     }
 }
