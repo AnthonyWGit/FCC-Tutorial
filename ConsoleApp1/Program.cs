@@ -23,7 +23,7 @@ namespace Navigation
                 " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
                 + " 15 - FizzBuzz \n 16 - Verbatim \n 17 - StringFormat \n 18 - Interpolation \n 19 - StringConcat \n "
                 + "20 - Equals \n 21 - LoopIteration \n 22 - EmptyOrNull \n 23 - LoopReverse \n 24 - Arrays \n"
-                + " 25 - ArraysOperations \n 26 - Lists \n 27 - Dictionary \n - "
+                + " 25 - ArraysOperations \n 26 - Lists \n 27 - Dictionary \n 28 - Odd/even"
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -184,6 +184,11 @@ namespace Navigation
                     case string placeholder when placeholder == "dictionary" || placeholder == "27":
                         Console.WriteLine("_______________________________________________\n");
                         Dictionnaries.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "odd/even" || placeholder == "28":
+                        Console.WriteLine("_______________________________________________\n");
+                        ExerciceOddSplit.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -1104,14 +1109,24 @@ namespace ExerciceOddSplit
     {
         public static void Demo()
         {
+            //using lists are more flexible, more dynamic
             List<int> odd = new List<int>();
             List<int> even = new List<int>();
-            for (int i = 0, i <= 20; i++)
+            for (int i = 0; i <= 20; i++)
             {
                 if (i % 2 == 0) { even.Add(i); }
-                else { odd.Add(i); }
+                else{ odd.Add(i); } // modulus 2 always 1 or 0
             }
-
+            Console.WriteLine();
+            foreach (var oddity in odd)
+            {
+                Console.Write($"{oddity} ");
+            }
+            Console.WriteLine();
+            foreach (var eveny in even)
+            {
+                Console.Write($"{eveny} ");
+            }
         }
     }
 }
