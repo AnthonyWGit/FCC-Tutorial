@@ -19,7 +19,7 @@ namespace Navigation
                 "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n 7 - Const \n" 
                 + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n" + 
                 " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
-                + " 15 - FizzBuzz \n "
+                + " 15 - FizzBuzz \n 16 - Verbatim \n"
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -120,6 +120,11 @@ namespace Navigation
                     case string placeholder when placeholder == "fizzbuzz" || placeholder == "15":
                         Console.WriteLine("_______________________________________________\n");
                         FizzBuzz.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "verbatim" || placeholder == "16":
+                        Console.WriteLine("_______________________________________________\n");
+                        Verbatim.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -647,6 +652,27 @@ namespace FizzBuzz
                     Console.WriteLine(i);
                 }
             }
+        }
+    }
+}
+
+namespace Verbatim
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            string path = "C:Users\\Jean\\Documents \n New line";
+            Console.WriteLine(path);
+            Console.WriteLine("I am using the verbatim identifier in this path below");
+            path = @"C:Users\\Jean\\Documents" + "\n New line";
+            //Verbatim won't work with \n and escape characters need to use concatenation 
+            Console.WriteLine(path);
+            //speech mark in verbatim identifier needs double speech mark
+            string exemple = @"Hello ""Someone""";
+            Console.WriteLine(exemple);
+            exemple = "Hello 'someone'";
+            Console.WriteLine(exemple);
         }
     }
 }
