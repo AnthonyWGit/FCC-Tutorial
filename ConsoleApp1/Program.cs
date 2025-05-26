@@ -1048,7 +1048,41 @@ namespace Dictionnaries
     {
         public static void Demo()
         {
+            Dictionary<int, string> names = new Dictionary<int, string>//with and ID comes a name
+            //T means any data
+            //all keys must be unique else runtime error 
+            {
+                {1,"Anthony"},
+                {2, "Test" },
+                {3, "Test" } //Key value pair
+            };
+            for (int i = 0; i < names.Count; i++)
+            {
+                Console.WriteLine(names[i]);//will return only "anthony" 3 times because we
+                KeyValuePair<int,string> pair = names.ElementAt(i);
+                Console.WriteLine(names.ElementAt(i));
+                Console.WriteLine($"{pair.Key} - {pair.Value}");
+            }
+            Console.WriteLine();
+            foreach (KeyValuePair<int,string> item in names)
+            {
+                Console.WriteLine($"{item.Key} - {item.Value}");
+            }
 
+            Dictionary<string, string> teachers = new Dictionary<string, string>
+            {
+                {"Maths","Henri"},
+                {"Français","Lina"}
+            };
+            //Console.WriteLine(teachers["Maths"]); //problem with this approche is that one typo and the programm crashes
+            if (teachers.TryGetValue("Maths", out string teacher))
+                {
+                    Console.WriteLine(teacher);
+                }
+            else
+            {
+                Console.WriteLine("teacher not found");
+            }
         }
     }
 }
