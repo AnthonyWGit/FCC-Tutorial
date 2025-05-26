@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading;
@@ -20,7 +21,7 @@ namespace Navigation
                 + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n" + 
                 " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
                 + " 15 - FizzBuzz \n 16 - Verbatim \n 17 - StringFormat \n 18 - Interpolation \n 19 - StringConcat \n "
-                + "20 - X \n"
+                + "20 - Equals \n"
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -141,6 +142,11 @@ namespace Navigation
                     case string placeholder when placeholder == "stringconcat" || placeholder == "19":
                         Console.WriteLine("_______________________________________________\n");
                         StringConcat.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "equals" || placeholder == "20":
+                        Console.WriteLine("_______________________________________________\n");
+                        EqualsDemo.Programm.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -740,6 +746,57 @@ namespace StringConcat
             Console.WriteLine("Your name is " + name + " and your age is " + age + ".");
             Console.WriteLine("[----------------------------------]");
             Console.WriteLine(string.Concat("Your name is ",name," and your age is ",age,"."));
+        }
+    }
+}
+
+namespace EqualsDemo
+{
+    class Programm
+    {
+        public static void Demo()
+        {
+            string nameProg = "Brok";
+            char[] chars = new char[] { 'B', 'r', 'o', 'k' };
+            Console.WriteLine($"Hello my name is {nameProg}. What's yours ?");
+            Console.Write("I am (enter your name):");
+            string nameUser = Console.ReadLine();
+            object newCompare = new string(chars);
+
+            if (!nameUser.Equals(string.Empty))
+            {
+                Console.WriteLine("below comparing string strings");
+                if (nameUser.Equals(nameProg))
+                {
+                    Console.WriteLine("We have the same name !");
+                }
+                else
+                {
+                    Console.WriteLine("We are not called the same");
+                }
+
+                Console.WriteLine("Below using string.Eqals. Comparing object Brok holding array of chars to string");
+                if (nameUser.Equals(newCompare))
+                {
+                    Console.WriteLine("We have the same name!");
+                }
+                else
+                {
+                    Console.WriteLine("We are not the same");
+                }
+                Console.WriteLine("Below using == and same values used");
+
+                if (nameUser == newCompare)
+                {
+                    Console.WriteLine("Same name");
+                }
+                else
+                {
+                    Console.WriteLine("not");
+                }
+                Console.WriteLine($"\nEquals compare the values and the == operator compares the reference in the memory." +
+                    $"Best to use equals because it cares more about the values rather than where they are in the memory\n");
+            }
         }
     }
 }
