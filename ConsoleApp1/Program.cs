@@ -21,7 +21,7 @@ namespace Navigation
                 + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n" + 
                 " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
                 + " 15 - FizzBuzz \n 16 - Verbatim \n 17 - StringFormat \n 18 - Interpolation \n 19 - StringConcat \n "
-                + "20 - Equals \n"
+                + "20 - Equals \n 21 - LoopIteration \n"
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -147,6 +147,11 @@ namespace Navigation
                     case string placeholder when placeholder == "equals" || placeholder == "20":
                         Console.WriteLine("_______________________________________________\n");
                         EqualsDemo.Programm.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "LoopIteration" || placeholder == "21":
+                        Console.WriteLine("_______________________________________________\n");
+                        LoopIteration.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -797,6 +802,34 @@ namespace EqualsDemo
                 Console.WriteLine($"\nEquals compare the values and the == operator compares the reference in the memory." +
                     $"Best to use equals because it cares more about the values rather than where they are in the memory\n");
             }
+        }
+    }
+}
+
+namespace LoopIteration
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            //Keep in my a string is an array of char 
+            string msg = "This is a message";
+            for (int i = 0; i < msg.Length; i++)
+            {
+                Console.Write(msg[i]);
+                System.Threading.Thread.Sleep(200); //Makes the program wait 
+            }
+            Console.WriteLine();
+            Console.WriteLine(msg.Contains('a')); // displays true if contains a 
+            bool contains = false;
+            for (int i = 0; i < msg.Length; i++)
+            {
+                if (msg[i] == 'a') 
+                {
+                    contains = true;
+                }
+            }
+            Console.WriteLine(contains);
         }
     }
 }
