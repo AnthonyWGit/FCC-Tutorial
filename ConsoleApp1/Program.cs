@@ -23,7 +23,7 @@ namespace Navigation
                 " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
                 + " 15 - FizzBuzz \n 16 - Verbatim \n 17 - StringFormat \n 18 - Interpolation \n 19 - StringConcat \n "
                 + "20 - Equals \n 21 - LoopIteration \n 22 - EmptyOrNull \n 23 - LoopReverse \n 24 - Arrays \n"
-                + " 25 - ArraysOperations \n "
+                + " 25 - ArraysOperations \n 26 - Lists \n"
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -174,6 +174,11 @@ namespace Navigation
                     case string placeholder when placeholder == "ArrayOperations" || placeholder == "25":
                         Console.WriteLine("_______________________________________________\n");
                         ArraysOperations.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "Lists" || placeholder == "26":
+                        Console.WriteLine("_______________________________________________\n");
+                        Lists.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -1020,9 +1025,30 @@ namespace Lists
             for (int i = 0; i < numbers.Length; i++)
             {
                 Console.Write("Enter a number: ");
-                int number = Convert.ToInt32(Console.ReadLine());
-                listNumbers.Add(number);
+                listNumbers.Add(Convert.ToInt32(Console.ReadLine()));
             }
+            Console.WriteLine();
+            for (int i = 0;i < listNumbers.Count;i++)
+            {
+                Console.Write($"{listNumbers[i]}");
+            }
+            Console.WriteLine() ;
+            listNumbers.RemoveAt(0);
+            foreach(var item in  listNumbers)
+            {
+                Console.WriteLine(item);
+            }
+        }
+    }
+}
+
+namespace Dictionnaries
+{
+    class Program
+    {
+        public static void Demo()
+        {
+
         }
     }
 }
