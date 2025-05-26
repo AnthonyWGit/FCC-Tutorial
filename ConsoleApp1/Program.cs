@@ -900,3 +900,20 @@ namespace LoopReverse
         }
     }
 }
+
+namespace Arrays
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            int number1 = 5;
+            int number2 = 10;
+            int number3 = 15;
+
+            int[] numbersArray = new int[3]; // To declare an array use the bracket notation after
+            //datatype and instantiate it with the amount of indexes you want 
+            
+        }
+    }
+}
