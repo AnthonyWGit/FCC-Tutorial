@@ -21,7 +21,8 @@ namespace Navigation
                 + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n" + 
                 " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
                 + " 15 - FizzBuzz \n 16 - Verbatim \n 17 - StringFormat \n 18 - Interpolation \n 19 - StringConcat \n "
-                + "20 - Equals \n 21 - LoopIteration \n 22 - EmptyOrNull \n 23 - LoopReverse \n"
+                + "20 - Equals \n 21 - LoopIteration \n 22 - EmptyOrNull \n 23 - LoopReverse \n 24 - Arrays \n"
+                + " 25 - \n "
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -162,6 +163,11 @@ namespace Navigation
                     case string placeholder when placeholder == "LoopReverse" || placeholder == "23":
                         Console.WriteLine("_______________________________________________\n");
                         LoopReverse.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "Array" || placeholder == "24":
+                        Console.WriteLine("_______________________________________________\n");
+                        Arrays.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -911,9 +917,25 @@ namespace Arrays
             int number2 = 10;
             int number3 = 15;
 
-            int[] numbersArray = new int[3]; // To declare an array use the bracket notation after
+            int[] numbersArray = new int[4]; // To declare an array use the bracket notation after
             //datatype and instantiate it with the amount of indexes you want 
-            
+
+            Console.Write("Enter a number: ");
+            numbersArray[0] = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter a number: ");
+            numbersArray[1] = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter a number: ");
+            numbersArray[2] = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter a number: ");
+            numbersArray[3] = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine($"{number1} & {number2} & {number3}");
+            //Console.WriteLine($"{numbersArray[0]} & {numbersArray[1]} & {numbersArray[2]}");
+
+            for (int i = 0; i < numbersArray.Length;i++)
+            {
+                Console.Write($"{numbersArray[i]} ");
+            }   
         }
     }
 }
