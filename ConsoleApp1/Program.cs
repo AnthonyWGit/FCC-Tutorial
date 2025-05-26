@@ -23,7 +23,8 @@ namespace Navigation
                 " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
                 + " 15 - FizzBuzz \n 16 - Verbatim \n 17 - StringFormat \n 18 - Interpolation \n 19 - StringConcat \n "
                 + "20 - Equals \n 21 - LoopIteration \n 22 - EmptyOrNull \n 23 - LoopReverse \n 24 - Arrays \n"
-                + " 25 - ArraysOperations \n 26 - Lists \n 27 - Dictionary \n 28 - Odd/even"
+                + " 25 - ArraysOperations \n 26 - Lists \n 27 - Dictionary \n 28 - Odd/even \n "
+                + "29 - ReturnType \n -"
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -189,6 +190,11 @@ namespace Navigation
                     case string placeholder when placeholder == "odd/even" || placeholder == "28":
                         Console.WriteLine("_______________________________________________\n");
                         ExerciceOddSplit.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "returntype" || placeholder == "29":
+                        Console.WriteLine("_______________________________________________\n");
+                        ReturnType.Program.Print();
                         userInput = "";
                         break;
                     case "exit":
@@ -1148,11 +1154,33 @@ namespace ExerciceDict
             int num = 7;
             int len = 5;
             int[] numbers = new int[len];
-            for (int i = 0;i < len; i++)
-            {
-                numbers[i] = num * i;
-            }
 
+            //int counter = 0;
+
+            for (int i = 0;i <numbers.Length; i++/*, counter++*/)
+            {
+                numbers[i - 1] = num * i; ///without minus 1 then error out of index 
+                //counter++;
+            }
+            foreach (var item in numbers)
+            {
+                Console.WriteLine($"{item}");
+            }
         }
+    }
+}
+
+namespace ReturnType
+{
+    class Program
+    {
+        public static void Print()
+        {
+            Console.WriteLine(Demo()); // not like in PHP where it would be something like $this->Print()
+        }
+    public static string Demo()
+            {
+                return "This dunction returns a string!";
+            }
     }
 }
