@@ -23,7 +23,7 @@ namespace Navigation
                 " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
                 + " 15 - FizzBuzz \n 16 - Verbatim \n 17 - StringFormat \n 18 - Interpolation \n 19 - StringConcat \n "
                 + "20 - Equals \n 21 - LoopIteration \n 22 - EmptyOrNull \n 23 - LoopReverse \n 24 - Arrays \n"
-                + " 25 - ArraysOperations \n 26 - Lists \n"
+                + " 25 - ArraysOperations \n 26 - Lists \n 27 - Dictionary \n - "
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -179,6 +179,11 @@ namespace Navigation
                     case string placeholder when placeholder == "Lists" || placeholder == "26":
                         Console.WriteLine("_______________________________________________\n");
                         Lists.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "dictionary" || placeholder == "27":
+                        Console.WriteLine("_______________________________________________\n");
+                        Dictionnaries.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -1058,16 +1063,13 @@ namespace Dictionnaries
             };
             for (int i = 0; i < names.Count; i++)
             {
-                Console.WriteLine(names[i]);//will return only "anthony" 3 times because we
+                //Console.WriteLine(names[i]);//will return only "anthony" 3 times because we
                 KeyValuePair<int,string> pair = names.ElementAt(i);
                 Console.WriteLine(names.ElementAt(i));
                 Console.WriteLine($"{pair.Key} - {pair.Value}");
             }
             Console.WriteLine();
-            foreach (KeyValuePair<int,string> item in names)
-            {
-                Console.WriteLine($"{item.Key} - {item.Value}");
-            }
+
 
             Dictionary<string, string> teachers = new Dictionary<string, string>
             {
@@ -1076,13 +1078,22 @@ namespace Dictionnaries
             };
             //Console.WriteLine(teachers["Maths"]); //problem with this approche is that one typo and the programm crashes
             if (teachers.TryGetValue("Maths", out string teacher))
-                {
-                    Console.WriteLine(teacher);
-                }
+            {
+                Console.WriteLine(teacher);
+                teachers["Maths"] = "Joe";
+                System.Threading.Thread.Sleep(500);
+                Console.WriteLine(teacher);
+            }
             else
             {
                 Console.WriteLine("teacher not found");
             }
+            teachers.Remove("Maths");
+            foreach (var item in teachers)
+            {
+                Console.WriteLine($"{item.Key} - {item.Value}");
+            }
+            if (teachers.ContainsKey("Math")) Console.WriteLine("Maths teacher has been fired");
         }
     }
 }
