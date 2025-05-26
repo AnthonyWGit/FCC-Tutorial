@@ -18,7 +18,8 @@ namespace Navigation
                 "displayed in my readme file. Please type the chapter you want to select : \n 1 - String" +
                 "\n 2 - Numbers \n 3 - Bool \n 4 - Operations \n 5 - Modulus \n 6 - Var \n 7 - Const \n" 
                 + " 8 - dataTypes \n 9 - UserName \n 10 - Guess the number \n 11 - For loop \n" + 
-                " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n "
+                " 12 - While loop \n 13 - Conditional/Ternary Operator \n 14 - Format Pattern \n"
+                + " 15 - FizzBuzz \n "
                 + "Press the enter key to confirm. \nType \"exit\" to exit the program";
             Console.WriteLine(stringToDisplay);
             string userInput = String.Empty;
@@ -114,6 +115,11 @@ namespace Navigation
                     case string placeholder when placeholder == "format pattern" || placeholder == "14":
                         Console.WriteLine("_______________________________________________\n");
                         FormatPattern.Program.Demo();
+                        userInput = "";
+                        break;
+                    case string placeholder when placeholder == "fizzbuzz" || placeholder == "15":
+                        Console.WriteLine("_______________________________________________\n");
+                        FizzBuzz.Program.Demo();
                         userInput = "";
                         break;
                     case "exit":
@@ -600,6 +606,47 @@ namespace FormatPattern
             Console.WriteLine(moniNegative.ToString("C", CultureInfo.CreateSpecificCulture("en-NZ")) + " English NZ");
 
 
+        }
+    }
+}
+
+namespace FizzBuzz
+{
+    class Program
+    {
+        public static void Demo()
+        {
+            /*
+             * Create a loop from 1 to X
+             * Divisible by 3 AND 5 = FizzBuzz
+             * Divisible by 3 = Fizz
+             * Divisible by 5 = Buzz
+             */
+            bool threeDiv = false;
+            bool fiveDiv = false;
+            Console.Write("Loop from 1 to X. Enter X. X = ?");
+            if (!int.TryParse(Console.ReadLine(), out int answerConvereted)) Console.WriteLine("Invalid");
+            for (int i = 1; i <= answerConvereted;i++)
+            {
+                threeDiv = i % 3 == 0;
+                fiveDiv = i % 5 == 0;
+                if (threeDiv && fiveDiv)
+                {
+                    Console.WriteLine("FizzBuzz");
+                }
+                else if (threeDiv)
+                {
+                    Console.WriteLine("Fizz");
+                }
+                else if (fiveDiv)
+                {
+                    Console.WriteLine("Buzz");
+                }
+                else
+                {
+                    Console.WriteLine(i);
+                }
+            }
         }
     }
 }
